@@ -22,10 +22,6 @@
     </a>
     <nav class="top-nav">
       <a href="index.html">← 比賽選單</a>
-      <a href="#criteria">評分標準</a>
-      <a href="#winners">依類別看得獎</a>
-      <a href="#playbook">中獎打法</a>
-      <a href="#review" class="nav-cta">照片診斷 →</a>
     </nav>
   </div>
 </header>
@@ -40,8 +36,8 @@
       <strong>2025 首屆得獎作品逐張分析</strong>、20 分類攻略，以及讓你上傳照片在本地端自我診斷的工具。
     </p>
     <div class="hero-actions">
-      <a href="#winners" class="btn btn-primary">看得獎作品拆解</a>
-      <a href="#review" class="btn btn-ghost">診斷我的照片</a>
+      <a href="#winners" data-view="winners" class="btn btn-primary">看得獎作品拆解</a>
+      <a href="#review" data-view="review" class="btn btn-ghost">診斷我的照片</a>
     </div>
     <div class="hero-facts">
       <div class="fact"><span class="fact-num">1–100</span><span class="fact-label">匿名評分制</span></div>
@@ -54,8 +50,15 @@
 
 <main class="wrap">
 
+<nav class="view-menu" id="viewMenu">
+  <button data-view="criteria">評分標準</button>
+  <button data-view="winners">依類別看得獎</button>
+  <button data-view="playbook">中獎打法</button>
+  <button data-view="review">照片診斷</button>
+</nav>
+
 <!-- ===================== 評分四標準 ===================== -->
-<section id="criteria" class="block">
+<section id="criteria" class="block view">
   <h2 class="section-title">評審怎麼打分：四大標準</h2>
   <p class="section-intro">
     官方每張作品由國際評審團以 1–100 分評分，名字隱藏、評審彼此看不到分數。判斷依據就是這四項。
@@ -85,7 +88,7 @@
 </section>
 
 <!-- ===================== 得獎拆解 ===================== -->
-<section id="winners" class="block">
+<section id="winners" class="block view">
   <h2 class="section-title">依類別看得獎 · 2025 首屆</h2>
   <p class="section-intro">
     這個獎 2025 才首屆（還沒有「近三年」，2026 得獎 11/8 公布後會補上）。
@@ -117,7 +120,7 @@
 </section>
 
 <!-- ===================== 中獎打法 ===================== -->
-<section id="playbook" class="block">
+<section id="playbook" class="block view">
   <h2 class="section-title">中獎打法 · 拍攝到送件 checklist</h2>
   <div class="playbook">
     <div class="play-col">
@@ -146,7 +149,7 @@
 </section>
 
 <!-- ===================== 照片診斷 ===================== -->
-<section id="review" class="block">
+<section id="review" class="block view">
   <h2 class="section-title">照片診斷工具</h2>
   <p class="section-intro">
     上傳一張你打算投稿的照片。工具在<strong>你的瀏覽器本地</strong>分析曝光、對比、色彩、銳利度與構圖分佈，

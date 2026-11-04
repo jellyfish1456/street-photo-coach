@@ -621,7 +621,28 @@ function initReview(){
   });
 }
 
+/* ============================================================
+   區段選單：點選單只顯示對應區段（不再全部堆一頁）
+   ============================================================ */
+function initViewMenu(){
+  const menu = document.getElementById("viewMenu");
+  if(!menu) return;
+  const views = [...document.querySelectorAll(".view")];
+  const btns = [...document.querySelectorAll("[data-view]")];
+  function show(id){
+    if(!views.some(v=>v.id===id)) id = views[0].id;
+    views.forEach(v=>{v.hidden = v.id!==id;});
+    btns.forEach(b=>b.classList.toggle("active", b.dataset.view===id));
+    history.replaceState(null,"","#"+id);
+    window.scrollTo({top:0,behavior:"instant"});
+  }
+  btns.forEach(b=>b.addEventListener("click",e=>{e.preventDefault();show(b.dataset.view);}));
+  show((location.hash||"").replace("#",""));
+  window.__showView = show;
+}
+
 /* init */
+initViewMenu();
 if(document.getElementById("catGrid")) buildCategories();
 if(document.getElementById("subjCheck")) buildSubjective();
 if(document.getElementById("catBrowse")) buildCategoryBrowser();
