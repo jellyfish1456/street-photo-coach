@@ -41,8 +41,103 @@ const SUBJECTIVE = [
 ];
 
 /* ============================================================
+   2b. 2025 首屆得獎作品（圖片為官方連結，不重製託管）
+   ============================================================ */
+const WINNERS_2025 = [
+  {title:"Swan", author:"Florian Wurzinger", cat:"年度攝影師 + 光影 1st", tag:"光影錯視",
+   img:"https://worldstreetphotoawards.com/wp-content/uploads/gravity_forms/13-cfc53cd329122e7ba54b7b0b6ae81092/2025/11/Swan_Wurzinger_WorldStreet.jpeg",
+   src:"https://worldstreetphotoawards.com/florian-wurzinger-photographer-of-the-year-2025/",
+   read:"極簡黑白：明亮的白色幾何塊面，暗部裡一道優雅曲線構成「天鵝」的錯視。",
+   why:"一個清楚到不行的想法——把日常光影看成天鵝。極致留白、黑白對比強烈，縮圖就認得出形狀。四項全中：構圖精準、創意（錯視）、原創（沒人這樣拍）、技術（乾淨曝光）。年度大獎通常給這種「一眼記住、說得出想法」的照片。"},
+  {title:"In the Open", author:"Eugene Lee", cat:"極簡 Minimalism 1st", tag:"留白+星芒",
+   img:"https://worldstreetphotoawards.com/wp-content/uploads/gravity_forms/14-7ef2163be084ef1a84abca64d5f8b005/2025/11/In-the-Open.JPG",
+   src:"https://worldstreetphotoawards.com/wspa-winners-2025/",
+   read:"仰角把高塔、幾何量體、逆光星芒與渺小人影，組進大片明亮天空。",
+   why:"極簡組要的就是「大量留白＋一個精準主體」。星芒是技術控制，人影提供尺度與故事。畫面乾淨、有秩序，是極簡組的標準得獎長相。"},
+  {title:"Untitled（Reflection）", author:"Oliver Kolding Palm", cat:"反射 Reflection 1st", tag:"雙層疊影",
+   img:"https://worldstreetphotoawards.com/wp-content/uploads/gravity_forms/13-cfc53cd329122e7ba54b7b0b6ae81092/2025/10/DSCF6363.jpg",
+   src:"https://worldstreetphotoawards.com/wspa-winners-2025/",
+   read:"黑白，透過反射面把多個人物疊成一張錯層畫面。",
+   why:"反射組評審愛「兩個世界疊在一起、卻還讀得出」。層次複雜但有序，黑白讓結構更清楚。難度高＝分數高。拍反射時：找乾淨的反射面，讓倒影裡有完整的事件。"},
+  {title:"Untitled（B&W）", author:"Oliver Kolding Palm", cat:"黑白 Black & White 1st", tag:"雨+逆光",
+   img:"https://worldstreetphotoawards.com/wp-content/uploads/gravity_forms/13-cfc53cd329122e7ba54b7b0b6ae81092/2025/10/DSCF6923.jpg",
+   src:"https://worldstreetphotoawards.com/wspa-winners-2025/",
+   read:"透明雨傘後一張被雨水模糊的臉，逆光、水珠滿布。",
+   why:"黑白組不是把彩色轉灰，而是靠光與質感。雨水＋逆光＋情緒臉孔＝強烈氛圍。提醒：黑白要有「非黑白不可」的理由，去色後畫面反而更有力才算成立。"},
+  {title:"Guardian of the rooftop", author:"Ruben Baars", cat:"手機 Mobile 1st", tag:"撞色+影子",
+   img:"https://worldstreetphotoawards.com/wp-content/uploads/gravity_forms/13-cfc53cd329122e7ba54b7b0b6ae81092/2025/11/13.jpg",
+   src:"https://worldstreetphotoawards.com/wspa-winners-2025/",
+   read:"粉紅與青綠大色塊牆面，一個戴帽男子的硬光投影打在粉牆上。",
+   why:"手機組評審更看瞬間與想法而非畫質。強烈撞色＋乾淨的影子＝連手機都能拍出的設計感。色塊簡單、影子說故事——證明器材不是藉口。"},
+  {title:"Trapped in the frame", author:"Yanitsa Genova", cat:"動物 Animals 1st", tag:"框中框+巧合",
+   img:"https://worldstreetphotoawards.com/wp-content/uploads/gravity_forms/13-cfc53cd329122e7ba54b7b0b6ae81092/2025/11/17YanitsaGenova1.jpg",
+   src:"https://worldstreetphotoawards.com/wspa-winners-2025/",
+   read:"海灘上有人滾動一個大輪胎，狗剛好被框在輪胎的圓圈裡。",
+   why:"動物組最吃「呼應與巧合瞬間」。用現場的圓當框、把狗關進框裡＝決定性瞬間＋幽默＋標題點題。這是等來的，不是擺的——早晚半秒都不成立。"},
+  {title:"Reach for the sky", author:"Ulf Finndahl", cat:"動態 Movement 1st", tag:"放射動勢",
+   img:"https://worldstreetphotoawards.com/wp-content/uploads/gravity_forms/14-7ef2163be084ef1a84abca64d5f8b005/2025/10/reach-for-the-sky.jpg",
+   src:"https://worldstreetphotoawards.com/wspa-winners-2025/",
+   read:"黑白高空鞦韆旋轉，人向外甩開，形成放射狀動感。",
+   why:"動態組要「動是刻意的語言」，不是手震的失敗。旋轉的放射構圖、凝結的張力，黑白去掉雜訊只留動勢。動與靜、人與機械的對比最強。"},
+  {title:"SEPARAIT HUMAN -selfportrait-", author:"Takayuki Nakamura", cat:"交通 Transport 1st", tag:"車框分割",
+   img:"https://worldstreetphotoawards.com/wp-content/uploads/gravity_forms/13-cfc53cd329122e7ba54b7b0b6ae81092/2025/10/DSCN5513.JPG",
+   src:"https://worldstreetphotoawards.com/wspa-winners-2025/",
+   read:"黑白，西裝男子被車窗框分割、又在後視鏡裡出現——自拍式的分裂。",
+   why:"交通組把「車」當構圖裝置：車窗是框、後視鏡是第二畫面。一個身體被切成兩塊＝概念性強，標題也替 idea 點題。善用交通工具的玻璃與鏡面做多層框。"},
+  {title:"Life", author:"Luca Regoli", cat:"開放 Open Theme 1st", tag:"巨影+實體",
+   img:"https://worldstreetphotoawards.com/wp-content/uploads/gravity_forms/13-cfc53cd329122e7ba54b7b0b6ae81092/2025/11/Life.JPG",
+   src:"https://worldstreetphotoawards.com/wspa-winners-2025/",
+   read:"米色牆上硬光投影：一個巨大的大人影子，牽著一個真實的小孩。",
+   why:"開放組競爭最兇，要最強的個人觀點。用「巨大影子＋渺小實體」講陪伴與缺席，情緒一秒到位。把影子當主角、真人當配角，是街拍高階打法。"},
+  {title:"In Between", author:"Alexandra Thannhäuser", cat:"天氣 Weather 1st", tag:"濕地鏡射",
+   img:"https://worldstreetphotoawards.com/wp-content/uploads/gravity_forms/13-cfc53cd329122e7ba54b7b0b6ae81092/2025/11/Thannhaeuser-Alexandra_In-Between.jpg",
+   src:"https://worldstreetphotoawards.com/wspa-winners-2025/",
+   read:"黑白，雨後地面把現代建築對稱倒影出來，一個渺小人影點綴。",
+   why:"天氣組重點是「天氣如何改變街道」。雨後濕地＝天然鏡面，對稱幾何＋孤獨人影＝氛圍與秩序兼具。下雨別收相機，地面就是你的反射工具。"},
+  {title:"Dystopian Driveby", author:"Roger Janssen", cat:"夜 / 低光 Night 1st", tag:"電影感暗調",
+   img:"https://worldstreetphotoawards.com/wp-content/uploads/gravity_forms/14-7ef2163be084ef1a84abca64d5f8b005/2025/11/PB295882.jpg",
+   src:"https://worldstreetphotoawards.com/wspa-winners-2025/",
+   read:"霧夜街道，單一暖色路燈，一個騎車身影沒入光裡，冷調電影感。",
+   why:"夜／低光組要「擁抱暗」。不硬拉亮、讓光源主導、留大量暗部＝氛圍。低飽和冷調給末世電影感——夜拍的分數在氣氛，不在乾淨。"},
+  {title:"Misty Morning Whispers", author:"Ayanava Sil", cat:"幾何 Geometry 1st", tag:"對位+霧",
+   img:"https://worldstreetphotoawards.com/wp-content/uploads/gravity_forms/13-cfc53cd329122e7ba54b7b0b6ae81092/2025/11/DSCF2663-021.jpg",
+   src:"https://worldstreetphotoawards.com/wspa-winners-2025/",
+   read:"霧中兩隻狗對坐，遠方塔影隱約，大量白色負空間。",
+   why:"把「對稱／對位」當幾何：兩個對望的量體＋中央消失的背景＝極簡幾何。霧提供乾淨畫布，少即是多。幾何不一定是建築線條，對位關係也是幾何。"},
+  {title:"Déjà Vu – In Search of a Lost Childhood", author:"Vahid Jabbari", cat:"彩色 Color 1st", tag:"低飽和記憶感",
+   img:"https://worldstreetphotoawards.com/wp-content/uploads/gravity_forms/13-cfc53cd329122e7ba54b7b0b6ae81092/2025/11/R0007163-2.jpg",
+   src:"https://worldstreetphotoawards.com/wspa-winners-2025/",
+   read:"清水模 brutalist 牆面，捲髮女子倚在欄上，一個小孩在斜坡奔跑，低飽和懷舊色。",
+   why:"彩色組不等於鮮豔——這張用「低飽和統一色調」營造記憶感。多層空間＋失焦奔跑的孩子＝似曾相識的夢境。色彩是情緒，不是裝飾；統一調性常比花俏更高級。"}
+];
+
+/* ============================================================
    3. 建立頁面靜態區塊
    ============================================================ */
+function buildWinners(){
+  const grid = document.getElementById("winnersGrid");
+  if(!grid) return;
+  WINNERS_2025.forEach(w=>{
+    const card = document.createElement("article");
+    card.className = "winner-card";
+    card.innerHTML =
+      `<a class="winner-img" href="${w.src}" target="_blank" rel="noopener" title="到官方頁面看原圖">
+         <img src="${w.img}" alt="${w.title} — ${w.author}" loading="lazy" referrerpolicy="no-referrer">
+         <span class="winner-cat">${w.cat}</span>
+       </a>
+       <div class="winner-body">
+         <div class="winner-head">
+           <h3>${w.title}</h3>
+           <span class="winner-tag">${w.tag}</span>
+         </div>
+         <p class="winner-author">${w.author}</p>
+         <p class="winner-read"><b>看到什麼：</b>${w.read}</p>
+         <p class="winner-why"><b>為什麼中：</b>${w.why}</p>
+       </div>`;
+    grid.appendChild(card);
+  });
+}
+
 function buildCategories(){
   const grid = document.getElementById("catGrid");
   CATEGORIES.forEach((c,i)=>{
@@ -414,6 +509,7 @@ function initReview(){
 }
 
 /* init */
-buildCategories();
-buildSubjective();
-initReview();
+if(document.getElementById("catGrid")) buildCategories();
+if(document.getElementById("subjCheck")) buildSubjective();
+if(document.getElementById("winnersGrid")) buildWinners();
+if(document.getElementById("dropZone")) initReview();
