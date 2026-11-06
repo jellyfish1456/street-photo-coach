@@ -151,7 +151,25 @@ const PX3_HERO = [
   src:"https://px3.fr/winners/special/2025/87"}
 ];
 
+let PX3_GOLDS = {};
+let PX3_CURRENT = 0;
+
+function goldGalleryHtml(catName){
+  const list = PX3_GOLDS[catName] || PX3_GOLDS[catName.replace(/\s+/g,"")];
+  if(!list || !list.length) return "";
+  const cells = list.map(g=>
+    `<a class="gold-cell" href="${g.h}" target="_blank" rel="noopener" title="${g.t} — ${g.a}（到官方看）">
+       <img src="${g.u}" alt="${g.t}" loading="lazy" referrerpolicy="no-referrer">
+       <span class="gold-cap"><b>${g.t}</b><br>${g.a}</span>
+     </a>`).join("");
+  return `<div class="gold-block">
+       <h4 class="gold-h">該類別 Pro 金獎 · 共 ${list.length} 件 <span>（每個子分類一面金獎，點圖看官方原圖）</span></h4>
+       <div class="gold-gallery">${cells}</div>
+     </div>`;
+}
+
 function renderPx3Detail(i){
+  PX3_CURRENT = i;
   const c = PX3_2025[i];
   const detail = document.getElementById("px3Detail");
   if(!detail) return;
@@ -173,7 +191,8 @@ function renderPx3Detail(i){
        <div><h3>${c.cat} <span class="cd-en">${c.en}</span></h3>
          <p class="cd-tip"><b>評審要什麼：</b>${c.tip}</p></div>
      </div>
-     <div class="win-list">${winHtml}</div>`;
+     <div class="win-list">${winHtml}</div>
+     ${goldGalleryHtml(c.cat)}`;
   detail.hidden = false;
   document.querySelectorAll(".catb-card").forEach((el,idx)=>el.classList.toggle("active", idx===i));
 }
@@ -213,3 +232,4 @@ function buildPx3(){
 
 initViewMenu();
 buildPx3();
+fetch("px3-golds.json").then(r=>r.json()).then(d=>{PX3_GOLDS=d; renderPx3Detail(PX3_CURRENT);}).catch(e=>{});
